@@ -1,4 +1,62 @@
-// component styles are encapsulated and only applied to their components
-* {
-  color: #FFEF00;
+:host {
+  text-align: center;  
 }
+
+a {
+  color: #E1004C;
+}
+
+.grin.icon {
+  color: #000;
+  position: absolute;
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: solid 1px currentColor;
+}
+
+.grin.icon:before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  border: solid 1px currentColor;
+}
+
+.grin.icon:after {
+  content: '';
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  border: solid 1px currentColor;
+}
+
+.grin.icon i {
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 10px;
+  height: 4px;
+  border-radius: 0 0 6px 6px;
+  border: solid 1px currentColor;
+}
+
+.grin.icon i:before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 2px;
+  height: 4px;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+}
+

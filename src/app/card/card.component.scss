@@ -1,0 +1,126 @@
+@import '../../style/vars';
+
+.play-card {
+	position: relative;
+	width: $play-card-w;
+	height: $play-card-h;
+	margin: 5px 0;
+
+	border: $play-card-bd;
+	border-radius: $play-card-radius;
+
+	cursor: move;
+
+	&--red {
+		border-color: red;
+	}
+
+	&--blue {
+		border-color: blue;
+	}
+
+	&__img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+		border-radius: 3px;
+	}
+
+	&__attack-triangle {
+		position: absolute;
+		width: 0;
+		height: 0;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: -$play-card-triangle-size;
+			left: 0;
+			width: 0;
+			height: 0;
+			border-style: solid;
+
+		}
+
+		&::before {
+			border-color: transparent grey transparent transparent;
+			border-width: $play-card-triangle-size $play-card-triangle-size $play-card-triangle-size 0;
+			filter: blur(4px);
+		}
+
+		&::after {
+			border-color: transparent #FFF500 transparent transparent;
+			border-width: $play-card-triangle-size $play-card-triangle-size $play-card-triangle-size 0;
+			filter: blur(1px);
+		}
+
+		&:hover,
+		&--attack {
+			cursor: none;
+
+			&::before,
+			&::after {
+				animation-duration: 100ms;
+				animation-iteration-count: infinite;
+				animation-name: shake;
+				animation-timing-function: ease-in-out;			
+			}
+
+			&::after {
+				// animation-delay: 10ms;
+				animation-duration: 120ms;
+			}
+		}
+
+		&--top-left {
+			top: $play-card-triangle-pos;
+			left: $play-card-triangle-pos;
+			transform: rotate(45deg);
+		}
+
+		&--top {
+			top: $play-card-triangle-pos;
+			left: 50%;
+			transform: translateX(-50%) rotate(90deg);
+		}
+
+		&--top-right {
+			top: $play-card-triangle-pos;
+			right: $play-card-triangle-pos;
+			transform: rotate(135deg);
+		}
+
+		&--right {
+			right: $play-card-triangle-pos;
+			top: 50%;
+			transform: translateY(-50%) rotate(180deg);
+		}
+
+		&--bottom-right {
+			bottom: $play-card-triangle-pos;
+			right: $play-card-triangle-pos;
+			transform: rotate(225deg);
+		}
+
+		&--bottom {
+			bottom: $play-card-triangle-pos;
+			left: 50%;
+			transform: translateX(-50%) rotate(270deg);
+		}
+
+		&--bottom-left {
+			bottom: $play-card-triangle-pos;
+			left: $play-card-triangle-pos;
+			transform: rotate(315deg);
+		}
+
+		&--left {
+			left: $play-card-triangle-pos;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}

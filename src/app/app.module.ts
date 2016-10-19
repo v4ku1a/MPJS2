@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { GameComponent } from './game/game.component';
+import { FieldComponent } from './field/field.component';
+import { CardComponent } from './card/card.component';
 import { ApiService } from './shared';
 import { routing } from './app.routing';
 
@@ -21,7 +24,10 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    GameComponent,
+    FieldComponent,
+    CardComponent
   ],
   providers: [
     ApiService

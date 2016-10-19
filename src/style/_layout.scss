@@ -1,0 +1,55 @@
+
+html,
+body {
+	height: 100%;
+}
+
+my-app {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+main {
+	flex: 1;
+}
+
+.layout {
+	
+	&__container {
+		width: 1200px;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 20px;
+		display: flex;
+	}
+
+	@media (min-width: 1200px) {
+
+		&__player {
+			width: $layout-player-w;
+			height: $layout-player-h;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: space-around;
+			align-items: center;
+		}
+
+		&__opponent {
+			width: $layout-opponent-w;
+		}
+
+		&__game-field {
+			flex: 1;
+		}
+	}
+
+	@media (max-width: 1199px) {
+		
+		&__opponent {
+			display: none;
+		}
+	}
+}

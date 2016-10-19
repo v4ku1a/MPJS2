@@ -1,17 +1,15 @@
-<header>
+
+<header class="page-header">
+  <h1><a [routerLink]="['']">Game</a></h1>
   <nav>
-    <a [routerLink]="['']">Home</a>
-    <a [routerLink]="['about']">About</a>
   </nav>
 </header>
-<main>
-  <h1>Hello from {{api.title}}!</h1>
 
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/angular.png">
-
+<main class="layout__container">
   <router-outlet></router-outlet>
 </main>
-<footer>
-  <a [href]="url">Webpack Angular 2 Starter</a>
+
+<footer class="page-footer">
+  Humble footer here. 
+  <a [routerLink]="['about']">About</a>
 </footer>

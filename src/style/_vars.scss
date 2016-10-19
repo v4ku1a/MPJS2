@@ -1,0 +1,20 @@
+
+$play-card-w: 				100px;
+$play-card-h: 				150px;
+$play-card-bd: 				2px solid lightgrey;
+$play-card-radius: 			3px;
+
+$play-card-triangle-pos: 	-3px;
+$play-card-triangle-size: 	15px;
+
+$layout-player-w: 			$play-card-w * 2 + 40px;
+$layout-player-h: 			$play-card-h * 3 + 60px;
+$layout-opponent-w: 		$play-card-w + 10px;
+
+$game-field-slot-bd: 		2px solid #028E9B;
+$game-field-slot-w: 		$play-card-w + 3px;
+$game-field-slot-h: 		$play-card-h + 3px;
+$game-field-slot-margin: 	10px;
+
+
+

@@ -1,0 +1,21 @@
+@import '../../style/vars';
+
+.game-field {
+	display: table;
+	margin: 0 auto;
+
+	&__row {
+		display: table-row;
+	}
+
+	&__cell {
+		display: table-cell;
+	}
+
+	&__slot {
+		border: $game-field-slot-bd;
+		width: $game-field-slot-w;
+		height: $game-field-slot-h;
+		margin: $game-field-slot-margin
+	}
+}
