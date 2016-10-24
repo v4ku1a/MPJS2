@@ -6,6 +6,17 @@ a {
   color: #E1004C;
 }
 
+.grin {
+  &,
+  & * {
+    &,
+    &::before,
+    &::after {
+      box-sizing: content-box;
+    }
+  }
+}
+
 .grin.icon {
   color: #000;
   position: absolute;

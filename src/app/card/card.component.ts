@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  imgStr: string;
+
   constructor() {
     // Do stuff
   }
@@ -23,7 +25,7 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.imgStr = this.generateStr();
   }
 
 }

@@ -10,6 +10,7 @@ import { GameComponent } from './game/game.component';
 import { FieldComponent } from './field/field.component';
 import { CardComponent } from './card/card.component';
 import { ApiService } from './shared';
+import { ChatComponent } from './chat/chat.component';
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -27,7 +28,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     AboutComponent,
     GameComponent,
     FieldComponent,
-    CardComponent
+    CardComponent,
+    ChatComponent
   ],
   providers: [
     ApiService
