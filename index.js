@@ -11,10 +11,9 @@ var db = require('./server/mongoose');
 db(env.dbUrl);
 
 var ioConnection = require('./server/io-connection');
+var apiGame = require('./server/game');
 
-app.post('/api/game', () => {
-    console.log(11111111);
-});
+app.post('/api/game', apiGame);
 
 app.use('/', express.static('dist'));
 
