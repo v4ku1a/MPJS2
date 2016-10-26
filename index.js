@@ -12,6 +12,10 @@ db(env.dbUrl);
 
 var ioConnection = require('./server/io-connection');
 
+app.post('/api/game', () => {
+    console.log(11111111);
+});
+
 app.use('/', express.static('dist'));
 
 serve.listen(env.port, function() {
