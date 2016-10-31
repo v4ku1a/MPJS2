@@ -15,30 +15,30 @@ export class ChatComponent {
   constructor(  ) { }
 
   ngOnInit() {
-    // let socket = io();
+    let socket = io();
 
     console.log($);
 
     console.log(io);
 
-    // $('#send-message-btn').on('click', function () {
-    //   let msg = $('#message-box').val();
-    //   // socket.emit('chat', msg);
-    //   $('#messages').append( $('<p>').text(msg) );
-    //   msg.val('');
-    //   return false;
-    // });
+    $('#send-message-btn').on('click', function () {
+      let msg = $('#message-box').val();
+      socket.emit('chat', msg);
+      $('#messages').append( $('<p>').text(msg) );
+      msg.val('');
+      return false;
+    });
 
-    // socket.on('chat', function (msg) {
-    //   if (typeof msg === 'string') {
-    //       $('#messages').append($('<p>').text(msg));
-    //   } else {
-    //     msg.reverse();
-    //     for(let el of msg){
-    //         $('#messages').append($('<p>').text(el.content));
-    //     }
-    //   }
-    // });
+    socket.on('chat', function (msg) {
+      if (typeof msg === 'string') {
+          $('#messages').append($('<p>').text(msg));
+      } else {
+        msg.reverse();
+        for(let el of msg){
+            $('#messages').append($('<p>').text(el.content));
+        }
+      }
+    });
 
   }
 

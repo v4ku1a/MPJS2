@@ -34,6 +34,7 @@ function game(req, res) {
     gameInstanse.save()
         .then(function(result){
             console.log("Game inserted into db");
+            console.log(result._id);
             res.sendStatus(200);
         })
         .catch(function (err) {
