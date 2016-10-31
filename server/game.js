@@ -1,48 +1,25 @@
 
 var GameModel = require('./models/game.model');
+var createGame = require('./create-game');
 
-var gameExample = {
-	"cards": [
-		{
-			"onField": true,
-			"x": 1,
-			"y": 2,
-			"player": 1,
-
-			"imageString": "d4f89dsg",
-
-			"attackSides": ["top", "top-right", "bottom-right"]
-		},
-		{
-			"onField": false,
-			"x": 2,
-			"y": 3,
-			"player": 2,
-
-			"imageString": "ds3g56et",
-
-			"attackSides": ["left", "bottom", "top-right"]
-		}
-	]
-};
-
+var newGame = createGame(); 
 
 function game(req, res) {
 
-    var gameInstanse = new GameModel(gameExample);
+    var gameInstanse = new GameModel(newGame);
 
     gameInstanse.save()
         .then(function(result){
             console.log("Game inserted into db");
             console.log(result._id);
-            res.sendStatus(200);
+
+            res.send(200, result._id);
         })
         .catch(function (err) {
             console.log(err);
+
             res.send(500, err);
         });
-
-    // res.send('222');
 }
 
 module.exports = game;

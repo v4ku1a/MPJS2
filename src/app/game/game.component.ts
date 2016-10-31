@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as io from "socket.io-client";
 
 @Component({
   selector: 'my-game',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() {
-    // Do stuff
-  }
+  constructor(
+  ) {}
 
   ngOnInit() {
-    console.log('Game loading');
+    let urlHash = document.location.hash.substr(1);
+    let socket = io();
+
+
+    console.log( urlHash );
+    
   }
 
 }
