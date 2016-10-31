@@ -11,8 +11,11 @@ var db = require('./server/mongoose');
 db(env.dbUrl);
 
 var ioConnection = require('./server/io-connection');
+var apiGame = require('./server/game');
 
-app.use('/', express.static('dist'));
+app.post('/api/game', apiGame);
+
+app.use(['/game', '/'], express.static('dist'));
 
 serve.listen(env.port, function() {
     console.log('Express server listening on port ' + env.port);

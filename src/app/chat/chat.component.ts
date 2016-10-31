@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 // import { Router } from '@angular/router';
-// import * as io from "socket.io-client";
+import * as io from "socket.io-client";
 // import { ChatService } from './chat-service/chat.service';
+
 
 @Component({
   selector: 'my-chat',
@@ -13,14 +14,18 @@ export class ChatComponent {
 //   constructor( private chatService: ChatService ) { }
   constructor(  ) { }
 
-  ngAfterViewInit(){
+  ngOnInit() {
     let socket = io();
+
+    console.log($);
+
+    console.log(io);
 
     $('#send-message-btn').on('click', function () {
       let msg = $('#message-box').val();
       socket.emit('chat', msg);
       $('#messages').append( $('<p>').text(msg) );
-      $('#message-box').val('');
+      msg.val('');
       return false;
     });
 

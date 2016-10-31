@@ -165,6 +165,9 @@ module.exports = function makeWebpackConfig() {
         io: 'socket.io-client'
     }),
 
+    // new webpack.ProvidePlugin({   
+    // }),
+
     // Define env variables to help with builds
     // Reference: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({

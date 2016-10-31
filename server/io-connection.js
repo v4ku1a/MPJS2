@@ -1,4 +1,4 @@
-var MsgModel = require('./model');
+var MsgModel = require('./models/chat.model');
 
 module.exports = function(socket) {
 	console.log(('usr connected'));
