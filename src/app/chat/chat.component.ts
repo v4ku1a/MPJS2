@@ -13,7 +13,7 @@ export class ChatComponent {
   constructor(  ) { }
 
   ngOnInit() {
-    let socket = io();
+    let socket = io('/chat');
 
     // console.log($);
 
