@@ -1,11 +1,11 @@
 var MsgModel = require('../models/chat.model');
 
 module.exports = function(socket) {
-	console.log(('usr connected'));
+	// console.log(('usr connected'));
 
 	MsgModel.find().sort('-_id').limit(5)
 	    .then(function (result) {
-	        console.log("msgs sent");
+	        // console.log("msgs sent");
 			socket.emit('chat', result);
 	    })
 	    .catch(function (err) {

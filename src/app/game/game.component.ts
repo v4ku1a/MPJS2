@@ -13,10 +13,16 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     let urlHash = document.location.hash.substr(1);
-    let socket = io();
+    let socket = io('http://localhost:36123/game');
+    
+    // console.log( urlHash );
 
+    socket.emit('get-game', urlHash);
 
-    console.log( urlHash );
+    socket.on('get', (gameObject) => {
+      console.log(gameObject);
+    });
+
     
   }
 
