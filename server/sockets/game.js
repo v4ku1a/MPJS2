@@ -1,36 +1,29 @@
 var GameModel = require('../models/game.model');
 
-module.exports = function(socket) {
-	console.log(('usr connected'));
+module.exports = (io) => {
 
-    socket.on('get-game', function(id){
-        console.log('Game id:' + id);
+	return (socket) => {
+		console.log('usr connected');
 
-        GameModel.find({'_id': id})
-            .then(function (result) {
-                console.log("game found");
-                socket.emit('get', result[0]);
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
-    });
+		socket.on('join-game', function(id){
+			console.log('Game id:' + id);
+			console.log(typeof id);
 
-	// socket.on('disconnect', function(){
-	// 	console.log('usr disconnected');
-	// });
+			socket.join(id);
 
-	// socket.on('chat', function(msg){
-	// 	socket.broadcast.emit('chat', msg);
+			GameModel.find({'_id': id})
+				.then(function (result) {
+					console.log("game found");
+					socket.emit('get', result[0]);
+					// io.sockets.in(id).emit('get', result[0]);
+				})
+				.catch(function (err) {
+					console.log(err);
+				});
+		});
 
-	// 	var modelInstance = new MsgModel({content: msg});
-
-	// 	modelInstance.save()
-	// 		.then(function(result){
-	// 			console.log("chat message inserted into db: " + msg);
-	// 		})
-	// 		.catch(function (err) {
-	// 	        console.log(err);
-	// 	    });
-	// });
+		// socket.on('disconnect', function(){
+		// 	console.log('usr disconnected');
+		// });
+	};
 };

@@ -10,7 +10,7 @@ var io = require('socket.io')(serve);
 var ioChat = io.of('/chat');
 var ioGame = io.of('/game');
 var ioChatConnection = require('./server/sockets/chat');
-var ioGameConnection = require('./server/sockets/game');
+var ioGameConnection = require('./server/sockets/game')(io);
 
 ioChat.on('connection', ioChatConnection);
 ioGame.on('connection', ioGameConnection);

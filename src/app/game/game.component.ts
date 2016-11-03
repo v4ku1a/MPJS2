@@ -17,7 +17,7 @@ export class GameComponent implements OnInit {
     
     console.log( urlHash );
 
-    socket.emit('get-game', urlHash);
+    socket.emit('join-game', urlHash);
 
     socket.on('get', (gameObject) => {
       console.log(gameObject);
