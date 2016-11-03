@@ -6,7 +6,7 @@ module.exports = function(socket) {
     socket.on('get-game', function(id){
         console.log('Game id:' + id);
 
-        GameModel.find({'_id': id}).sort('-_id').limit(1)
+        GameModel.find({'_id': id})
             .then(function (result) {
                 console.log("game found");
                 socket.emit('get', result[0]);

@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
     let urlHash = document.location.hash.substr(1);
     let socket = io('http://localhost:36123/game');
     
-    // console.log( urlHash );
+    console.log( urlHash );
 
     socket.emit('get-game', urlHash);
 

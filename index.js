@@ -1,6 +1,5 @@
 var env = require('./.env')
 
-var slash   = require('express-slash');
 var express = require('express');
 var app = express();
 
@@ -13,21 +12,23 @@ var ioGame = io.of('/game');
 var ioChatConnection = require('./server/sockets/chat');
 var ioGameConnection = require('./server/sockets/game');
 
+ioChat.on('connection', ioChatConnection);
+ioGame.on('connection', ioGameConnection);
+
 var db = require('./server/mongoose');
 db(env.dbUrl);
 
 var apiGame = require('./server/game');
 
-// app.use(slash());
-
 app.post('/api/game', apiGame);
 
-app.use(['/game', '/'], express.static('dist'));
+app.use('/css', express.static('dist/css'));
+app.use('/js', express.static('dist/js'));
+
+app.get('/*', function(req, res){
+  res.sendFile(__dirname + '/dist/index.html');
+});
 
 serve.listen(env.port, function() {
     console.log('Express server listening on port ' + env.port);
 });
-
-
-ioChat.on('connection', ioChatConnection);
-ioGame.on('connection', ioGameConnection);
