@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'my-card',
@@ -8,24 +8,28 @@ import { Component, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
   imgStr: string;
+  @Input() currentCard: any;
+  @Input() dragStart: any;
 
   constructor() {
     // Do stuff
   }
 
-  generateStr() {
-      let text = '';
-      let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  // generateStr() {
+  //     let text = '';
+  //     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-      for (let i = 0; i < 5; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-      }
+  //     for (let i = 0; i < 5; i++) {
+  //       text += possible.charAt(Math.floor(Math.random() * possible.length));
+  //     }
 
-      return text;
-  }
+  //     return text;
+  // }
 
   ngOnInit() {
-    this.imgStr = this.generateStr();
+    this.imgStr = this.currentCard.imageString;
+    // console.log(this.moveCallback);
+    // this.moveCallback();
   }
 
 }

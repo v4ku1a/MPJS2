@@ -1,15 +1,13 @@
 <div class="game-container">
 
     <div class="layout__player">
-        <my-card></my-card>
-        <my-card></my-card>
-        <my-card></my-card>
-        <my-card></my-card>
-        <my-card></my-card>
+        <div *ngFor="let card of cards" >
+            <my-card *ngIf="card.player == currentPlayer" [currentCard]="card" [dragStart]="dragStart"></my-card> <!--TODO ngIf-->
+        </div>
     </div>
 
     <div class="layout__game-field">
-        <my-field></my-field>
+        <my-field [dragDrop]="dragDrop"></my-field>
     </div>
 
     <div class="layout__opponent">

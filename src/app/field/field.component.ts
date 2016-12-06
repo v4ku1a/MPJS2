@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'my-field',
@@ -7,17 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldComponent implements OnInit {
 
+  @Input() dragDrop: any;
+
   constructor() {
     // Do stuff
   }
 
-  // allowDrop(ev) {
-  //   ev.preventDefault();
-  //   console.log('card dropped');
-  // }
+
 
   ngOnInit() {
     // Do stuff
+  }
+
+  onDragOver(event) {
+    event.preventDefault()
+    //console.log(event);
   }
 
 }

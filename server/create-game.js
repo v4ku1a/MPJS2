@@ -62,7 +62,7 @@ function createGame() {
                 "onField": true,
                 "x": 0,
                 "y": 0,
-                "player": 1,
+                "player": 2,
 
                 "imageString": "d4f89ds1",
 
@@ -72,7 +72,7 @@ function createGame() {
                 "onField": true,
                 "x": 0,
                 "y": 0,
-                "player": 1,
+                "player": 2,
 
                 "imageString": "d4f89ds2",
 
@@ -82,7 +82,7 @@ function createGame() {
                 "onField": true,
                 "x": 0,
                 "y": 0,
-                "player": 1,
+                "player": 2,
 
                 "imageString": "d4f89ds3",
 
@@ -92,7 +92,7 @@ function createGame() {
                 "onField": true,
                 "x": 0,
                 "y": 0,
-                "player": 1,
+                "player": 2,
 
                 "imageString": "d4f89ds4",
 
@@ -102,7 +102,7 @@ function createGame() {
                 "onField": false,
                 "x": 0,
                 "y": 0,
-                "player": 1,
+                "player": 2,
 
                 "imageString": "ds3g56e5",
 
