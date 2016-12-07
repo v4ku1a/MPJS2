@@ -1,44 +1,7 @@
 <div class="game-field">
-    <div class="game-field__row">
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-    </div>
-    <div class="game-field__row">
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-    </div>
-    <div class="game-field__row">
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
-        </div>
-        <div class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event)" (dragover)="onDragOver($event)"></div>
+    <div *ngFor="let y of fieldHeight" class="game-field__row">
+        <div *ngFor="let x of fieldWidth" class="game-field__cell">
+            <div class="game-field__slot" (drop)="dragDrop($event, x, y)" (dragover)="onDragOver($event)"></div>
         </div>
     </div>
 </div>

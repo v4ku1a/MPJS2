@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import * as io from "socket.io-client";
+import { Component, OnInit } from '@angular/core';
+import * as io from 'socket.io-client';
 
 
 @Component({
@@ -7,7 +7,7 @@ import * as io from "socket.io-client";
   templateUrl: 'chat.component.html',
   styleUrls: ['chat.component.scss']
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
 
 //   constructor( private chatService: ChatService ) { }
   constructor(  ) { }
@@ -32,7 +32,7 @@ export class ChatComponent {
           $('#messages').append($('<p>').text(msg));
       } else {
         msg.reverse();
-        for(let el of msg){
+        for ( let el of msg ){
             $('#messages').append($('<p>').text(el.content));
         }
       }

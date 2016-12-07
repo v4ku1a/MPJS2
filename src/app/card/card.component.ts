@@ -8,6 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   imgStr: string;
+  cardStyles = {
+    position: 'relative',
+    top: 'auto',
+    left: 'auto'
+  };
   @Input() currentCard: any;
   @Input() dragStart: any;
 
@@ -28,8 +33,14 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     this.imgStr = this.currentCard.imageString;
-    // console.log(this.moveCallback);
-    // this.moveCallback();
+  }
+
+  ngDoCheck() {
+    if ( this.currentCard.onField ) {
+      this.cardStyles.position = 'absolute';
+      this.cardStyles.top = 0 - 174 + this.currentCard.y * 174 + 'px';
+      this.cardStyles.left = 240 - 128 + this.currentCard.x * 128 + 'px';
+    }
   }
 
 }

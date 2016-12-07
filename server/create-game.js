@@ -4,7 +4,7 @@ function createGame() {
     return  {
         "cards": [
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 1,
@@ -14,7 +14,7 @@ function createGame() {
                 "attackSides": ["top", "top-right", "bottom-right"]
             },
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 1,
@@ -24,7 +24,7 @@ function createGame() {
                 "attackSides": ["top", "top-right", "bottom-right"]
             },
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 1,
@@ -34,7 +34,7 @@ function createGame() {
                 "attackSides": ["top", "top-right", "bottom-right"]
             },
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 1,
@@ -59,7 +59,7 @@ function createGame() {
 
 
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 2,
@@ -69,7 +69,7 @@ function createGame() {
                 "attackSides": ["top", "top-right", "bottom-right"]
             },
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 2,
@@ -79,7 +79,7 @@ function createGame() {
                 "attackSides": ["top", "top-right", "bottom-right"]
             },
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 2,
@@ -89,7 +89,7 @@ function createGame() {
                 "attackSides": ["top", "top-right", "bottom-right"]
             },
             {
-                "onField": true,
+                "onField": false,
                 "x": 0,
                 "y": 0,
                 "player": 2,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as io from "socket.io-client";
+import * as io from 'socket.io-client';
+
+let cardInMotion;
 
 @Component({
   selector: 'my-game',
@@ -13,41 +15,41 @@ export class GameComponent implements OnInit {
   gameObject: any;
   urlHash = document.location.hash.substr(1);
   socket = io('http://localhost:36123/game');
-  public dragging;
 
 
   constructor(
   ) {}
 
   ngOnInit() {
-    
+
     console.log( this.urlHash );
 
     this.socket.emit('join-game', this.urlHash);
 
     this.socket.on('get', (data) => {
-      //console.log(gameObject);
-      console.log('Player:'+ data.player);
+      // console.log(gameObject);
+      console.log('Player:' + data.player);
       this.currentPlayer = data.player;
       this.cards = data.gameObject.cards;
     });
-   
+
   }
 
-  dragStart(event, card) {  
-    // console.log(card);
+  dragStart(event, card) {
     // event.dataTransfer.setData('card', card);
-    // event.dataTransfer.effectAllowed='move';
-    // event.dataTransfer.setDragImage(event.target,0,0);
-    this.dragging = card;
-    console.log(this.dragging);
+    cardInMotion = card;
+    // console.log(this);
   }
 
-  dragDrop(event) {
+  dragDrop(event, x, y) {
     event.preventDefault();
-    // console.log(event.dataTransfer.getData('card'));
     // event.dataTransfer.getData("card");
-    console.log(this.dragging);
+    console.log('X:' + x + ' Y:' + y);
+    console.log(cardInMotion);
+    cardInMotion.onField = true;
+    cardInMotion.x = x;
+    cardInMotion.y = y;
+    // console.log(this);
   }
 
 }

@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FieldComponent implements OnInit {
 
   @Input() dragDrop: any;
+  fieldWidth = [1, 2, 3, 4];
+  fieldHeight = [1, 2, 3];
 
   constructor() {
     // Do stuff
@@ -20,8 +22,8 @@ export class FieldComponent implements OnInit {
   }
 
   onDragOver(event) {
-    event.preventDefault()
-    //console.log(event);
+    event.preventDefault();
+    // console.log(event);
   }
 
 }

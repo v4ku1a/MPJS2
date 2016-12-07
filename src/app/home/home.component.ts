@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   gameId;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private http: Http
   ) {}
 

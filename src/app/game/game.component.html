@@ -2,7 +2,7 @@
 
     <div class="layout__player">
         <div *ngFor="let card of cards" >
-            <my-card *ngIf="card.player == currentPlayer" [currentCard]="card" [dragStart]="dragStart"></my-card> <!--TODO ngIf-->
+            <my-card *ngIf="card.player == currentPlayer || card.onField" [currentCard]="card" [dragStart]="dragStart"></my-card> <!--TODO ngIf-->
         </div>
     </div>
 
