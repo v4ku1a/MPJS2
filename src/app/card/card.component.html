@@ -1,4 +1,4 @@
-<div class="play-card" draggable="true" (dragstart)="dragStart($event, currentCard);" [ngStyle]="cardStyles">
+<div class="play-card" [attr.draggable]="currentCard.onField ? false : true" (dragstart)="dragStart($event, currentCard);" [ngStyle]="cardStyles">
 
     <div *ngFor="let triangle of currentCard.attackSides" class="play-card__attack-triangle play-card__attack-triangle--{{triangle}}"></div>
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as io from 'socket.io-client';
 
-let cardInMotion;
 
 @Component({
   selector: 'my-game',
@@ -10,15 +9,14 @@ let cardInMotion;
 })
 export class GameComponent implements OnInit {
 
-  public cards: any;
+  cards: any;
+  cardInMotion: any;
   currentPlayer: number;
-  gameObject: any;
+  //gameObject: any;
   urlHash = document.location.hash.substr(1);
   socket = io('http://localhost:36123/game');
 
-
-  constructor(
-  ) {}
+  constructor() {}
 
   ngOnInit() {
 
@@ -33,23 +31,43 @@ export class GameComponent implements OnInit {
       this.cards = data.gameObject.cards;
     });
 
+    this.dragStart = this.dragStart.bind(this);
+    this.dragDrop = this.dragDrop.bind(this);
   }
 
   dragStart(event, card) {
+    if (card.onField) {
+      event.preventDefault();
+      return false;
+    }
     // event.dataTransfer.setData('card', card);
-    cardInMotion = card;
+    this.cardInMotion = card;
     // console.log(this);
   }
 
   dragDrop(event, x, y) {
     event.preventDefault();
+    if (!this.cardInMotion) {
+      return false;
+    }
+    if (this.cards.find((el) => {
+      if (el.x == x && el.y == y) { return true; } 
+      else { return false; }
+    })) {
+      return false;
+    }
     // event.dataTransfer.getData("card");
     console.log('X:' + x + ' Y:' + y);
-    console.log(cardInMotion);
-    cardInMotion.onField = true;
-    cardInMotion.x = x;
-    cardInMotion.y = y;
+    this.cardInMotion.onField = true;
+    this.cardInMotion.x = x;
+    this.cardInMotion.y = y;
+
+    console.log(this.cardInMotion);
     // console.log(this);
+
+    this.cardInMotion = 0;
+
+    console.log(this.cards);
   }
 
 }

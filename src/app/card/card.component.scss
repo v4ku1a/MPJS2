@@ -10,6 +10,11 @@
 	border-radius: $play-card-radius;
 
 	cursor: move;
+	user-select: none;
+
+	&[draggable=false] {
+		pointer-events: none;
+	}
 
 	&--red {
 		border-color: red;
