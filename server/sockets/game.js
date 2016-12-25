@@ -1,4 +1,5 @@
 var GameModel = require('../models/game.model');
+var calculateMove = require('../calculate-move');
 var playersJoined = [null, false, false];
 
 module.exports = (io) => {
@@ -36,6 +37,12 @@ module.exports = (io) => {
 				.catch(function (err) {
 					console.log(err);
 				});
+		});
+
+		socket.on('card-drop', function(data){
+			// data.cards
+			//console.log(data.cardInMotion);
+			calculateMove(data.cards, data.cardInMotion);
 		});
 
 		socket.on('disconnect', function(){

@@ -62,12 +62,22 @@ export class GameComponent implements OnInit {
     this.cardInMotion.x = x;
     this.cardInMotion.y = y;
 
-    console.log(this.cardInMotion);
     // console.log(this);
 
-    this.cardInMotion = 0;
+    // console.log(this.cardInMotion);
+
 
     console.log(this.cards);
+
+    
+
+    this.socket.emit('card-drop', {
+      cards: this.cards,
+      cardInMotion: this.cardInMotion
+    });
+
+
+    this.cardInMotion = false;
   }
 
 }
