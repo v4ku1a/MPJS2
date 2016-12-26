@@ -71,7 +71,7 @@ module.exports = function(cards, cardInMotion) {
                         el.attackSides.indexOf(neighbor.strikeBack) === -1                      
                     ){  
                         el.player = cardInMotion.player;
-                        console.log(el);
+                        // console.log(el);
                     } 
                 });
             }
@@ -84,4 +84,6 @@ module.exports = function(cards, cardInMotion) {
             
     //     }
     // });
+
+    return cards;
 };

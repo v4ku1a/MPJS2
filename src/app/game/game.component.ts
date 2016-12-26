@@ -31,6 +31,12 @@ export class GameComponent implements OnInit {
       this.cards = data.gameObject.cards;
     });
 
+    this.socket.on('cards-update', (data) => {
+      this.cards = data.cards;
+
+      console.log(this.cards);
+    });
+
     this.dragStart = this.dragStart.bind(this);
     this.dragDrop = this.dragDrop.bind(this);
   }
@@ -67,7 +73,7 @@ export class GameComponent implements OnInit {
     // console.log(this.cardInMotion);
 
 
-    console.log(this.cards);
+    //console.log(this.cards);
 
     
 

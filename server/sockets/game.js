@@ -40,9 +40,12 @@ module.exports = (io) => {
 		});
 
 		socket.on('card-drop', function(data){
+			var updatedCards;
 			// data.cards
 			//console.log(data.cardInMotion);
-			calculateMove(data.cards, data.cardInMotion);
+			updatedCards = calculateMove(data.cards, data.cardInMotion);
+
+			socket.broadcast.emit('cards-update', {cards: updatedCards});
 		});
 
 		socket.on('disconnect', function(){
