@@ -1,8 +1,12 @@
-<div class="play-card" [attr.draggable]="currentCard.onField ? false : true" (dragstart)="dragStart($event, currentCard);" [ngStyle]="cardStyles">
+<div class="play-card" 
+     [ngClass]="'play-card--player-' + cardPlayer"
+     [ngStyle]="cardStyles" 
+     [attr.draggable]="currentCard.onField ? false : true" 
+     (dragstart)="dragStart($event, currentCard);">
 
-    <div *ngFor="let triangle of currentCard.attackSides" class="play-card__attack-triangle play-card__attack-triangle--{{triangle}}"></div>
+    <div *ngFor="let triangle of currentCard.attackSides" 
+         class="play-card__attack-triangle play-card__attack-triangle--{{triangle}}"
+         [ngClass]="{'play-card__attack-triangle--attack': (currentCard._id === attackCard._id && attackCard.sides.indexOf(triangle) >= 0) }"></div>
 
     <img class="play-card__img" src="https://api.adorable.io/avatars/120/{{imgStr}}">
-
-    Player {{currentCard.player}}
 </div>

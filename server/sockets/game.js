@@ -40,12 +40,13 @@ module.exports = (io) => {
 		});
 
 		socket.on('card-drop', function(data){
-			var updatedCards;
+			var updatedCardsData;
 			// data.cards
 			//console.log(data.cardInMotion);
-			updatedCards = calculateMove(data.cards, data.cardInMotion);
+			updatedCardsData = calculateMove(data.cards, data.cardInMotion);
 
-			socket.broadcast.emit('cards-update', {cards: updatedCards});
+			socket.emit('cards-update', updatedCardsData);
+			socket.broadcast.emit('cards-update', updatedCardsData);
 		});
 
 		socket.on('disconnect', function(){

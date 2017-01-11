@@ -10,6 +10,8 @@ import * as io from 'socket.io-client';
 export class GameComponent implements OnInit {
 
   cards: any;
+  capturedCards: any = [];
+  attackCard: any = {};
   cardInMotion: any;
   currentPlayer: number;
   //gameObject: any;
@@ -33,8 +35,10 @@ export class GameComponent implements OnInit {
 
     this.socket.on('cards-update', (data) => {
       this.cards = data.cards;
-
-      console.log(this.cards);
+      this.capturedCards = data.capturedCards;
+      this.attackCard = data.attackCard;
+      
+      //console.log(data.attackCard.sides);
     });
 
     this.dragStart = this.dragStart.bind(this);

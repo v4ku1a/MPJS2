@@ -51,6 +51,12 @@ module.exports = function(cards, cardInMotion) {
         },
     ];
 
+    var capturedCards = [];
+    var attackCard = {
+        _id: false,
+        sides: []
+    }
+
     var cardInArray = cards.find(function(el){
         if(el._id === cardInMotion._id){
             return true;
@@ -66,13 +72,17 @@ module.exports = function(cards, cardInMotion) {
 
                 cards.forEach(function(el){
                     if(
+                        cardInMotion.player !== el.player &&
                         cardInMotion.x + neighbor.x === el.x &&
                         cardInMotion.y + neighbor.y === el.y &&
-                        el.attackSides.indexOf(neighbor.strikeBack) === -1                      
-                    ){  
+                        el.attackSides.indexOf(neighbor.strikeBack) === -1
+                    ) {  
                         el.player = cardInMotion.player;
-                        // console.log(el);
-                    } 
+                        capturedCards.push(el._id);
+                        attackCard._id = cardInMotion._id;
+                        attackCard.sides.push(attackSide);
+                        //console.log(el);
+                    }
                 });
             }
         });
@@ -85,5 +95,9 @@ module.exports = function(cards, cardInMotion) {
     //     }
     // });
 
-    return cards;
+    return {
+        cards: cards,
+        capturedCards: capturedCards,
+        attackCard: attackCard
+    };
 };

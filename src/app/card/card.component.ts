@@ -1,11 +1,11 @@
-import { Component, OnInit, DoCheck, Input } from '@angular/core';
+import { Component, OnInit, DoCheck, AfterViewInit, Input } from '@angular/core';
 
 @Component({
   selector: 'my-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit, DoCheck {
+export class CardComponent implements OnInit, DoCheck, AfterViewInit {
 
   imgStr: string;
   cardStyles = {
@@ -13,8 +13,11 @@ export class CardComponent implements OnInit, DoCheck {
     top: 'auto',
     left: 'auto'
   };
+  cardPlayer:string = '';
   @Input() currentCard: any;
   @Input() dragStart: any;
+  @Input() capturedCards: any;
+  @Input() attackCard: any;
 
   constructor() {
     // Do stuff
@@ -33,6 +36,25 @@ export class CardComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.imgStr = this.currentCard.imageString;
+
+    if ( this.capturedCards.indexOf(this.currentCard._id) < 0 ) {
+      this.cardPlayer = this.currentCard.player;
+    } else {
+      this.cardPlayer = (this.currentCard.player === '1' ? '2' : '1');
+    }
+
+    if(this.attackCard._id === this.currentCard._id) {
+      console.log(this.attackCard.sides);
+    }
+  }
+
+  ngAfterViewInit() {
+    
+    if ( this.capturedCards.indexOf(this.currentCard._id) >= 0 ) {
+      setTimeout(() => {
+        this.cardPlayer = this.currentCard.player;
+      }, 100);    
+    }
   }
 
   ngDoCheck() {

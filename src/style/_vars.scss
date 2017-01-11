@@ -11,7 +11,7 @@ $layout-player-w: 			$play-card-w * 2 + 40px;
 $layout-player-h: 			$play-card-h * 3 + 60px;
 $layout-opponent-w: 		$play-card-w + 10px;
 
-$game-field-slot-bd: 		2px solid #028E9B;
+$game-field-slot-bd: 		2px dashed lightgrey;
 $game-field-slot-w: 		$play-card-w + 4px;
 $game-field-slot-h: 		$play-card-h + 4px;
 $game-field-slot-margin: 	10px;

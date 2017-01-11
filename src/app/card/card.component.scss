@@ -9,6 +9,8 @@
 	border: $play-card-bd;
 	border-radius: $play-card-radius;
 
+	transition: border-color 2s linear;
+
 	cursor: move;
 	user-select: none;
 
@@ -16,11 +18,11 @@
 		pointer-events: none;
 	}
 
-	&--red {
+	&--player-1 {
 		border-color: red;
 	}
 
-	&--blue {
+	&--player-2 {
 		border-color: blue;
 	}
 
@@ -71,7 +73,7 @@
 			&::before,
 			&::after {
 				animation-duration: 100ms;
-				animation-iteration-count: infinite;
+				animation-iteration-count: 10;
 				animation-name: shake;
 				animation-timing-function: ease-in-out;			
 			}
