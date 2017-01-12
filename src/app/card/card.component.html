@@ -1,5 +1,5 @@
 <div class="play-card" 
-     [ngClass]="'play-card--player-' + cardPlayer"
+     [ngClass]="['play-card--player-' + currentCard.player, capturedByPlayer ? 'play-card--captured-by-player-' + currentCard.player : '']"
      [ngStyle]="cardStyles" 
      [attr.draggable]="currentCard.onField ? false : true" 
      (dragstart)="dragStart($event, currentCard);">

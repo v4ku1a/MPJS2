@@ -19,11 +19,26 @@
 	}
 
 	&--player-1 {
-		border-color: red;
+		border-color: $player-1-color;
 	}
 
 	&--player-2 {
-		border-color: blue;
+		border-color: $player-2-color;
+	}
+
+	&--captured-by-player-1 {
+		animation-duration: .4s;
+		animation-iteration-count: 1;
+		animation-name: capture-card;
+		animation-timing-function: ease-in-out;
+	}
+
+	&--captured-by-player-2 {
+		animation-duration: .4s;
+		animation-iteration-count: 1;
+		animation-name: capture-card;
+		animation-timing-function: ease-in-out;
+		animation-direction: reverse;
 	}
 
 	&__img {
@@ -66,14 +81,14 @@
 			filter: blur(1px);
 		}
 
-		&:hover,
+		// &:hover,
 		&--attack {
 			cursor: none;
 
 			&::before,
 			&::after {
 				animation-duration: 100ms;
-				animation-iteration-count: 10;
+				animation-iteration-count: 5;
 				animation-name: shake;
 				animation-timing-function: ease-in-out;			
 			}
@@ -131,5 +146,16 @@
 			top: 50%;
 			transform: translateY(-50%);
 		}
+	}
+}
+
+@keyframes capture-card {
+
+	from {
+		border-color: $player-2-color;
+	}
+
+	to {
+		border-color: $player-1-color;
 	}
 }

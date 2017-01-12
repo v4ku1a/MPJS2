@@ -1,11 +1,11 @@
-import { Component, OnInit, DoCheck, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
 
 @Component({
   selector: 'my-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit, DoCheck, AfterViewInit {
+export class CardComponent implements OnInit, DoCheck {
 
   imgStr: string;
   cardStyles = {
@@ -13,7 +13,7 @@ export class CardComponent implements OnInit, DoCheck, AfterViewInit {
     top: 'auto',
     left: 'auto'
   };
-  cardPlayer:string = '';
+  capturedByPlayer:boolean = false;
   @Input() currentCard: any;
   @Input() dragStart: any;
   @Input() capturedCards: any;
@@ -37,23 +37,8 @@ export class CardComponent implements OnInit, DoCheck, AfterViewInit {
   ngOnInit() {
     this.imgStr = this.currentCard.imageString;
 
-    if ( this.capturedCards.indexOf(this.currentCard._id) < 0 ) {
-      this.cardPlayer = this.currentCard.player;
-    } else {
-      this.cardPlayer = (this.currentCard.player === '1' ? '2' : '1');
-    }
-
-    if(this.attackCard._id === this.currentCard._id) {
-      console.log(this.attackCard.sides);
-    }
-  }
-
-  ngAfterViewInit() {
-    
-    if ( this.capturedCards.indexOf(this.currentCard._id) >= 0 ) {
-      setTimeout(() => {
-        this.cardPlayer = this.currentCard.player;
-      }, 100);    
+    if( this.capturedCards.indexOf(this.currentCard._id) >= 0 ) {
+      this.capturedByPlayer = true;
     }
   }
 
