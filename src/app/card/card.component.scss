@@ -9,7 +9,7 @@
 	border: $play-card-bd;
 	border-radius: $play-card-radius;
 
-	transition: border-color 2s linear;
+	//transition: border-color 2s linear;
 
 	cursor: move;
 	user-select: none;
@@ -27,14 +27,14 @@
 	}
 
 	&--captured-by-player-1 {
-		animation-duration: .4s;
+		animation-duration: .9s;
 		animation-iteration-count: 1;
 		animation-name: capture-card;
 		animation-timing-function: ease-in-out;
 	}
 
 	&--captured-by-player-2 {
-		animation-duration: .4s;
+		animation-duration: .9s;
 		animation-iteration-count: 1;
 		animation-name: capture-card;
 		animation-timing-function: ease-in-out;

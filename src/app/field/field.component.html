@@ -1,7 +1,7 @@
 <div class="game-field">
     <div *ngFor="let y of fieldHeight" class="game-field__row">
         <div *ngFor="let x of fieldWidth" class="game-field__cell">
-            <div class="game-field__slot" (drop)="dragDrop($event, x, y)" (dragover)="onDragOver($event)"></div>
+            <div class="game-field__slot" [ngClass]="'game-field__slot--' + x + '-' + y" (drop)="dragDrop($event, x, y)" (dragover)="onDragOver($event)"></div>
         </div>
     </div>
 </div>

@@ -43,10 +43,20 @@ export class CardComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+    var gameFieldSlot;
+
     if ( this.currentCard.onField ) {
       this.cardStyles.position = 'absolute';
-      this.cardStyles.top = 0 - 174 + this.currentCard.y * 174 + 'px';
-      this.cardStyles.left = 240 - 128 + this.currentCard.x * 128 + 'px';
+      // this.cardStyles.top = 0 - 174 + this.currentCard.y * 174 + 'px';
+      // this.cardStyles.left = 240 - 128 + this.currentCard.x * 128 + 'px';
+
+      gameFieldSlot = document.querySelector('.game-field__slot--' + this.currentCard.x + '-' + this.currentCard.y);
+        
+
+      //console.log( gameFieldSlot.offsetLeft  );
+
+      this.cardStyles.top = gameFieldSlot.offsetTop - 3 + 'px';
+      this.cardStyles.left = gameFieldSlot.offsetLeft + 2 + 'px';
     }
   }
 

@@ -57,6 +57,7 @@ export class GameComponent implements OnInit {
 
   dragDrop(event, x, y) {
     event.preventDefault();
+
     if (!this.cardInMotion) {
       return false;
     }
