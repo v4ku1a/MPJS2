@@ -3,3 +3,28 @@
     display: flex;
     position: relative;
 }
+
+.game {
+
+    &__player {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    &__url {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    &__input {
+        display: inline-block;
+        width: auto;
+
+        &,
+        &:focus,
+        &:active {
+            outline: 0;
+        }
+    }
+
+}

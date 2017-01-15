@@ -1,3 +1,14 @@
+
+<div class="clearfix">
+    <h2 class="game__player">Player: {{currentPlayer}}</h2>
+
+    <div class="game__url pull-right">
+        Game Url:
+        <input class="game__input form-control" type="text" value="http://localhost:8080/game#{{gameId}}" size="51" onClick="this.select();" readonly>
+    </div>
+</div>
+
+
 <div class="game-container">
 
     <div class="layout__player">
@@ -10,9 +21,6 @@
         <my-field [dragDrop]="dragDrop"></my-field>
     </div>
 
-    <div class="layout__opponent">
-                
-    </div>
 </div>
 
 <my-chat></my-chat>

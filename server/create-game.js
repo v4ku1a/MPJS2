@@ -1,120 +1,54 @@
 
-function createGame() {
+function generateImg() {
+    var text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-    return  {
-        "cards": [
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 1,
+    for (var i = 0; i < 5; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
 
-                "imageString": "d4f89ds1",
+    return text;
+}
 
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 1,
+function generateAttackSides() {
+    var sides = [];
+    var possible = ["top-left", "top", "top-right", "right", "bottom-right", "bottom", "bottom-left", "left"];
 
-                "imageString": "d4f89ds2",
+    for (var i = 0; i < 3; i++) {
+        sides.push( possible[Math.floor(Math.random() * possible.length)] );
+    }
 
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 1,
+    return sides;
+}
 
-                "imageString": "d4f89ds3",
+function generateCard(player) {
 
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 1,
+    return {
+        player: player,
 
-                "imageString": "d4f89ds4",
+        onField: false,
+        x: 0,
+        y: 0,
 
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 1,
+        imageString: generateImg(),
 
-                "imageString": "ds3g56e5",
-
-                "attackSides": ["left", "bottom", "top-right"]
-            },
-
-
-
-
-
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 2,
-
-                "imageString": "d4f89ds1",
-
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 2,
-
-                "imageString": "d4f89ds2",
-
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 2,
-
-                "imageString": "d4f89ds3",
-
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 2,
-
-                "imageString": "d4f89ds4",
-
-                "attackSides": ["top", "top-right", "bottom-right"]
-            },
-            {
-                "onField": false,
-                "x": 0,
-                "y": 0,
-                "player": 2,
-
-                "imageString": "ds3g56e5",
-
-                "attackSides": ["left", "bottom", "top-right"]
-            }
-
-
-
-        ]
+        attackSides: generateAttackSides()
     };
+}
 
 
+function createGame() {
+    var i, cards = [];
+
+    for (i = 0; i < 5; i++) {
+        cards.push(generateCard(1));
+    }
+
+    for (i = 0; i < 5; i++) {
+        cards.push(generateCard(2));
+    }
+
+    return {cards: cards};
 }
 
 

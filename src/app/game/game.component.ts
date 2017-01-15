@@ -9,6 +9,7 @@ import * as io from 'socket.io-client';
 })
 export class GameComponent implements OnInit {
 
+  gameId: string;
   cards: any;
   capturedCards: any = [];
   attackCard: any = {};
@@ -29,6 +30,7 @@ export class GameComponent implements OnInit {
     this.socket.on('get', (data) => {
       // console.log(gameObject);
       console.log('Player:' + data.player);
+      this.gameId = data.gameObject._id;
       this.currentPlayer = data.player;
       this.cards = data.gameObject.cards;
     });
@@ -83,6 +85,7 @@ export class GameComponent implements OnInit {
     
 
     this.socket.emit('card-drop', {
+      id: this.gameId,
       cards: this.cards,
       cardInMotion: this.cardInMotion
     });
