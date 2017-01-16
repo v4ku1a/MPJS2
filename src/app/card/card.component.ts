@@ -14,6 +14,7 @@ export class CardComponent implements OnInit, DoCheck {
     left: 'auto'
   };
   capturedByPlayer:boolean = false;
+  @Input() turn: number;
   @Input() currentCard: any;
   @Input() dragStart: any;
   @Input() capturedCards: any;

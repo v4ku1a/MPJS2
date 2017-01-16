@@ -1,7 +1,7 @@
 <div class="play-card" 
-     [ngClass]="['play-card--player-' + currentCard.player, capturedByPlayer ? 'play-card--captured-by-player-' + currentCard.player : '']"
+     [ngClass]="['play-card--player-' + currentCard.player, capturedByPlayer ? 'play-card--captured-by-player-' + currentCard.player : '', !currentCard.onField ? 'play-card--pristine' : '']"
      [ngStyle]="cardStyles" 
-     [attr.draggable]="currentCard.onField ? false : true" 
+     [attr.draggable]="!currentCard.onField && currentCard.player === turn" 
      (dragstart)="dragStart($event, currentCard);">
 
     <div *ngFor="let triangle of currentCard.attackSides" 

@@ -56,6 +56,7 @@ module.exports = function(cards, cardInMotion) {
         _id: false,
         sides: []
     }
+    var turn = cardInMotion.player === 1 ? 2 : 1;
 
     var cardInArray = cards.find(function(el){
         if(el._id === cardInMotion._id){
@@ -97,6 +98,7 @@ module.exports = function(cards, cardInMotion) {
 
     return {
         cards: cards,
+        turn: turn,
         capturedCards: capturedCards,
         attackCard: attackCard
     };

@@ -48,7 +48,10 @@ function createGame() {
         cards.push(generateCard(2));
     }
 
-    return {cards: cards};
+    return {
+        turn: 1,
+        cards: cards
+    };
 }
 
 

@@ -16,6 +16,12 @@
 
 	&[draggable=false] {
 		pointer-events: none;
+		cursor: not-allowed;
+	}
+
+	&--pristine[draggable=false] {
+		pointer-events: auto;
+		cursor: wait;
 	}
 
 	&--player-1 {

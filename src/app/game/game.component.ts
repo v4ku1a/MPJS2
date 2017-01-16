@@ -10,6 +10,7 @@ import * as io from 'socket.io-client';
 export class GameComponent implements OnInit {
 
   gameId: string;
+  turn: number;
   cards: any;
   capturedCards: any = [];
   attackCard: any = {};
@@ -33,10 +34,12 @@ export class GameComponent implements OnInit {
       this.gameId = data.gameObject._id;
       this.currentPlayer = data.player;
       this.cards = data.gameObject.cards;
+      this.turn = data.gameObject.turn;
     });
 
     this.socket.on('cards-update', (data) => {
       this.cards = data.cards;
+      this.turn = data.turn;
       this.capturedCards = data.capturedCards;
       this.attackCard = data.attackCard;
       

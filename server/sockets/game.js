@@ -45,7 +45,7 @@ module.exports = (io) => {
 			//console.log(data.cardInMotion);
 			updatedCardsData = calculateMove(data.cards, data.cardInMotion);
 
-			GameModel.update({_id: data.id}, {$set: {cards: updatedCardsData.cards}}, function(err, raw){
+			GameModel.update({_id: data.id}, {$set: {turn: updatedCardsData.turn, cards: updatedCardsData.cards}}, function(err, raw){
 				console.log(raw);
 			});
 

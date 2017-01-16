@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var GameSchema = new Schema({
+  turn:  { type: Number, required: true },
   cards: [{
     onField:      { type: Boolean, required: true },
     x:            { type: Number, required: true },
