@@ -16,6 +16,7 @@ export class GameComponent implements OnInit {
   attackCard: any = {};
   cardInMotion: any;
   currentPlayer: number;
+  winnerPlayer: number = -1;
   //gameObject: any;
   urlHash = document.location.hash.substr(1);
   socket = io('http://localhost:36123/game');
@@ -30,11 +31,12 @@ export class GameComponent implements OnInit {
 
     this.socket.on('get', (data) => {
       // console.log(gameObject);
-      console.log('Player:' + data.player);
+      // console.log('Player:' + data.player);
       this.gameId = data.gameObject._id;
       this.currentPlayer = data.player;
       this.cards = data.gameObject.cards;
       this.turn = data.gameObject.turn;
+      this.winnerPlayer = this.checkEndGame();
     });
 
     this.socket.on('cards-update', (data) => {
@@ -42,8 +44,7 @@ export class GameComponent implements OnInit {
       this.turn = data.turn;
       this.capturedCards = data.capturedCards;
       this.attackCard = data.attackCard;
-      
-      //console.log(data.attackCard.sides);
+      this.winnerPlayer = this.checkEndGame();
     });
 
     this.dragStart = this.dragStart.bind(this);
@@ -95,6 +96,25 @@ export class GameComponent implements OnInit {
 
 
     this.cardInMotion = false;
+  }
+
+  checkEndGame() {
+
+    let player1Cnt = 0,
+        player2Cnt = 0;
+
+    this.cards.forEach((card) => {
+      if(card.onField){
+        card.player === 1 ? player1Cnt++ : player2Cnt++;
+      }
+    });
+
+    if(player1Cnt + player2Cnt === 10) {
+      if(player1Cnt === player2Cnt) return 0;
+      if(player1Cnt > player2Cnt) return 1;
+      if(player1Cnt < player2Cnt) return 2;
+    }
+    return -1;
   }
 
 }
